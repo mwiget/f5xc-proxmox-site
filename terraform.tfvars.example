@@ -1,0 +1,16 @@
+project_prefix      = "prefix"
+ssh_public_key     = "ssh-ed25519 ...."
+
+pm_api_url          = "https://<proxmox api url>:8006/api2/json"
+pm_api_token_id     = "<proxmox api token>"
+pm_api_token_secret = "<proxmox api secret>"
+pm_target_nodes     = [ "prox1", "prox2", "prox3"]
+iso_storage_pool    = "cephfs"                # or local
+pm_storage_pool     = "cephpool"              # or local-lvm
+pm_clone            = "f5xc-ce-template"      # needs to be created. See README.md
+pm_pool             = ""
+
+f5xc_api_url        = "https://<tenant>.console.ves.volterra.io/api"
+f5xc_api_token      = "f5xc api token"
+f5xc_tenant         = "<tenant id>"
+f5xc_api_p12_file   = "<path to tenant.console.ves.volterra.io.api-creds.p12 file>"

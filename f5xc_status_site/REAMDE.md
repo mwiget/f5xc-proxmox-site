@@ -1,0 +1,3 @@
+- original source url : https://github.com/cklewar/f5-xc-modules/tree/main/f5xc/status/site
+- credit goes to      : https://github.com/cklewar/f5-xc-modules/commits?author=cklewar
+- Apache-2.0 License  : https://github.com/cklewar/f5-xc-modules/blob/main/LICENSE
