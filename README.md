@@ -55,3 +55,34 @@ terraform apply
 Terraform will created the site(s) in your F5XC Tenant, clone and launch the VM(s), automatically accept the node(s)
 registration request and wait for the site(s) to become ONLINE.
 
+## Example multi-node App Stack Site
+
+Setting master_node_count=3 and worker_node_count=10 in appstack.tf, then deploy with `terraform apply`. 
+
+Once complete, kubeconfig file <cluster-name>.kubeconfig gets created. The helper script [env.sh](./env.sh) can be 
+sourced in a shell to populate the env variable KUBECONFIG:
+
+```
+. . .
+Apply complete! Resources: 45 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+proxmox = <sensitive>
+(base) m1:f5xc-proxmox-site mwiget$ source env.sh
+(base) m1:f5xc-proxmox-site mwiget$ k get nodes -o wide
+NAME               STATUS   ROLES        AGE     VERSION       INTERNAL-IP     EXTERNAL-IP   OS-IMAGE                                      KERNEL-VERSION                 CONTAINER-RUNTIME
+mw-appstack-0-m0   Ready    ves-master   28m     v1.29.2-ves   192.168.42.68   <none>        Red Hat Enterprise Linux 9.2024.11.4 (Plow)   5.14.0-427.16.1.el9_4.x86_64   cri-o://1.26.5-5.ves1.el9
+mw-appstack-0-m1   Ready    ves-master   28m     v1.29.2-ves   192.168.42.69   <none>        Red Hat Enterprise Linux 9.2024.11.4 (Plow)   5.14.0-427.16.1.el9_4.x86_64   cri-o://1.26.5-5.ves1.el9
+mw-appstack-0-m2   Ready    ves-master   28m     v1.29.2-ves   192.168.42.70   <none>        Red Hat Enterprise Linux 9.2024.11.4 (Plow)   5.14.0-427.16.1.el9_4.x86_64   cri-o://1.26.5-5.ves1.el9
+mw-appstack-0-w0   Ready    <none>       5m26s   v1.29.2-ves   192.168.42.73   <none>        Red Hat Enterprise Linux 9.2024.11.4 (Plow)   5.14.0-427.16.1.el9_4.x86_64   cri-o://1.26.5-5.ves1.el9
+mw-appstack-0-w1   Ready    <none>       5m42s   v1.29.2-ves   192.168.42.75   <none>        Red Hat Enterprise Linux 9.2024.11.4 (Plow)   5.14.0-427.16.1.el9_4.x86_64   cri-o://1.26.5-5.ves1.el9
+mw-appstack-0-w2   Ready    <none>       5m6s    v1.29.2-ves   192.168.42.67   <none>        Red Hat Enterprise Linux 9.2024.11.4 (Plow)   5.14.0-427.16.1.el9_4.x86_64   cri-o://1.26.5-5.ves1.el9
+mw-appstack-0-w3   Ready    <none>       5m8s    v1.29.2-ves   192.168.42.78   <none>        Red Hat Enterprise Linux 9.2024.11.4 (Plow)   5.14.0-427.16.1.el9_4.x86_64   cri-o://1.26.5-5.ves1.el9
+mw-appstack-0-w4   Ready    <none>       5m9s    v1.29.2-ves   192.168.42.77   <none>        Red Hat Enterprise Linux 9.2024.11.4 (Plow)   5.14.0-427.16.1.el9_4.x86_64   cri-o://1.26.5-5.ves1.el9
+mw-appstack-0-w5   Ready    <none>       5m10s   v1.29.2-ves   192.168.42.71   <none>        Red Hat Enterprise Linux 9.2024.11.4 (Plow)   5.14.0-427.16.1.el9_4.x86_64   cri-o://1.26.5-5.ves1.el9
+mw-appstack-0-w6   Ready    <none>       5m12s   v1.29.2-ves   192.168.42.72   <none>        Red Hat Enterprise Linux 9.2024.11.4 (Plow)   5.14.0-427.16.1.el9_4.x86_64   cri-o://1.26.5-5.ves1.el9
+mw-appstack-0-w7   Ready    <none>       5m11s   v1.29.2-ves   192.168.42.76   <none>        Red Hat Enterprise Linux 9.2024.11.4 (Plow)   5.14.0-427.16.1.el9_4.x86_64   cri-o://1.26.5-5.ves1.el9
+mw-appstack-0-w8   Ready    <none>       4m59s   v1.29.2-ves   192.168.42.79   <none>        Red Hat Enterprise Linux 9.2024.11.4 (Plow)   5.14.0-427.16.1.el9_4.x86_64   cri-o://1.26.5-5.ves1.el9
+mw-appstack-0-w9   Ready    <none>       4m41s   v1.29.2-ves   192.168.42.74   <none>        Red Hat Enterprise Linux 9.2024.11.4 (Plow)   5.14.0-427.16.1.el9_4.x86_64   cri-o://1.26.5-5.ves1.el9
+```
