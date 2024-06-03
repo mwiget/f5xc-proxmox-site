@@ -87,7 +87,7 @@ DHCP leases for the App Stack Nodes on Firewall Secure Mesh site:
 ![F5XC dhcp leases](f5xc_dhcp_leases.jpg)
 
 Proxmox Cluster UI View:
-![Proxmox cluster view](proxmox_cluster_photo.jpg)
+![Proxmox cluster view](proxmox_cluster_overview.jpg)
 
 Query App Stack nodes via kubectl, using the automatically generated `<prefix>-fw-appstack-0.kubeconfig`:
 
