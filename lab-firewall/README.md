@@ -78,10 +78,10 @@ Once deployed, you can check status via F5 XC UI, including the DHCP leases assi
 ![F5XC UI Sites](f5xc_ui_sites.jpg)
 
 Firewall Nodes:
-![F5XC Firewall Nodes](f5xc_firewall_nodes.jp)
+![F5XC Firewall Nodes](f5xc_firewall_nodes.jpg)
 
 App Stack Nodes:
-![F5XC Appstack Nodes](f5xc_appstack_nodes.jp)
+![F5XC Appstack Nodes](f5xc_appstack_nodes.jpg)
 
 DHCP leases for the App Stack Nodes on Firewall Secure Mesh site:
 ![F5XC dhcp leases](f5xc_dhcp_leases.jpg)

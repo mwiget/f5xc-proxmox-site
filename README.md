@@ -86,3 +86,5 @@ mw-appstack-0-w7   Ready    <none>       5m11s   v1.29.2-ves   192.168.42.76   <
 mw-appstack-0-w8   Ready    <none>       4m59s   v1.29.2-ves   192.168.42.79   <none>        Red Hat Enterprise Linux 9.2024.11.4 (Plow)   5.14.0-427.16.1.el9_4.x86_64   cri-o://1.26.5-5.ves1.el9
 mw-appstack-0-w9   Ready    <none>       4m41s   v1.29.2-ves   192.168.42.74   <none>        Red Hat Enterprise Linux 9.2024.11.4 (Plow)   5.14.0-427.16.1.el9_4.x86_64   cri-o://1.26.5-5.ves1.el9
 ```
+
+[Lab Example with 3-node Secure Mesh site securing multi-node App Stack Cluster](lab-firewall/)
