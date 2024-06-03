@@ -93,7 +93,13 @@ Query App Stack nodes via kubectl, using the automatically generated `<prefix>-f
 
 ```
 $ source env.sh
-$ k get nodes -o wide
-NAME                  STATUS   ROLES        AGE     VERSION       INTERNAL-IP       EXTERNAL-IP   OS-IMAGE                                      KERNEL-VERSION                 CONTAINER-RUNTIMEmw-fw-appstack-0-m0   Ready    ves-master   45m     v1.29.2-ves   192.168.100.114   <none>        Red Hat Enterprise Linux 9.2024.11.4 (Plow)   5.14.0-427.16.1.el9_4.x86_64   cri-o://1.26.5-5.ves1.el9
-mw-fw-appstack-0-m1   Ready    ves-master   45m     v1.29.2-ves   192.168.100.96    <none>        Red Hat Enterprise Linux 9.2024.11.4 (Plow)   5.14.0-427.16.1.el9_4.x86_64   cri-o://1.26.5-5.ves1.el9mw-fw-appstack-0-m2   Ready    ves-master   45m     v1.29.2-ves   192.168.100.49    <none>        Red Hat Enterprise Linux 9.2024.11.4 (Plow)   5.14.0-427.16.1.el9_4.x86_64   cri-o://1.26.5-5.ves1.el9mw-fw-appstack-0-w0   Ready    <none>       5m54s   v1.29.2-ves   192.168.100.121   <none>        Red Hat Enterprise Linux 9.2024.11.4 (Plow)   5.14.0-427.16.1.el9_4.x86_64   cri-o://1.26.5-5.ves1.el9mw-fw-appstack-0-w1   Ready    <none>       5m51s   v1.29.2-ves   192.168.100.165   <none>        Red Hat Enterprise Linux 9.2024.11.4 (Plow)   5.14.0-427.16.1.el9_4.x86_64   cri-o://1.26.5-5.ves1.el9mw-fw-appstack-0-w2   Ready    <none>       6m12s   v1.29.2-ves   192.168.100.101   <none>        Red Hat Enterprise Linux 9.2024.11.4 (Plow)   5.14.0-427.16.1.el9_4.x86_64   cri-o://1.26.5-5.ves1.el9(base) m1:f5xc-proxmox-
-```
+
+k get nodes -o wide
+NAME                  STATUS   ROLES        AGE    VERSION       INTERNAL-IP       EXTERNAL-IP   OS-IMAGE                                      KERNEL-VERSION                 CONTAINER-RUNTIME
+mw-fw-appstack-0-m0   Ready    ves-master   159m   v1.29.2-ves   192.168.100.114   <none>        Red Hat Enterprise Linux 9.2024.11.4 (Plow)   5.14.0-427.16.1.el9_4.x86_64   cri-o://1.26.5-5.ves1.el9
+mw-fw-appstack-0-m1   Ready    ves-master   159m   v1.29.2-ves   192.168.100.96    <none>        Red Hat Enterprise Linux 9.2024.11.4 (Plow)   5.14.0-427.16.1.el9_4.x86_64   cri-o://1.26.5-5.ves1.el9
+mw-fw-appstack-0-m2   Ready    ves-master   159m   v1.29.2-ves   192.168.100.49    <none>        Red Hat Enterprise Linux 9.2024.11.4 (Plow)   5.14.0-427.16.1.el9_4.x86_64   cri-o://1.26.5-5.ves1.el9
+mw-fw-appstack-0-w0   Ready    <none>       120m   v1.29.2-ves   192.168.100.121   <none>        Red Hat Enterprise Linux 9.2024.11.4 (Plow)   5.14.0-427.16.1.el9_4.x86_64   cri-o://1.26.5-5.ves1.el9
+mw-fw-appstack-0-w1   Ready    <none>       120m   v1.29.2-ves   192.168.100.165   <none>        Red Hat Enterprise Linux 9.2024.11.4 (Plow)   5.14.0-427.16.1.el9_4.x86_64   cri-o://1.26.5-5.ves1.el9
+mw-fw-appstack-0-w2   Ready    <none>       120m   v1.29.2-ves   192.168.100.101   <none>        Red Hat Enterprise Linux 9.2024.11.4 (Plow)   5.14.0-427.16.1.el9_4.x86_64   cri-o://1.26.5-5.ves1.el9
+``````
