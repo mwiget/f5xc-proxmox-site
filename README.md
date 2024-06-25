@@ -6,6 +6,15 @@ Example Terraform scripts to deploy F5XC Appstack and Secure Mesh sites on Proxm
 
 ### F5XC CE VM Template
 
+Download the latest qcow2 image from https://vesio.blob.core.windows.net/releases/rhel/9/x86_64/images/securemeshV2/securemeshV2.latest
+manually via Browser or run [./download_ce_image.sh](download_ce_image.sh) directly on your Proxmox server, then
+create a template from the download file on your Proxmox server, adjusting the full (!) path to the downloaded
+qcow2 image, the template id and the Proxmox iso storage to save it:
+
+Then use the script on Proxmox server to import the qcow2 into a template:  [create_f5xc_smv2_template.sh](create_f5xc_smv2_template.sh)
+
+### F5XC legacy CE VM Template
+
 Download the latest qcow2 image from https://docs.cloud.f5.com/docs/images/node-cert-hw-kvm-images manually 
 via Browser or run [./download_ce_image.sh](download_ce_image.sh) directly on your Proxmox server, then
 create a template from the download file on your Proxmox server, adjusting the full (!) path to the downloaded
@@ -40,8 +49,9 @@ Copy [terraform.tfvars.example](terraform.tfvars.example) to terraform.tvars and
 Adjust the count variable in the following templates to pick how many App itack, single and dual nic Secure Mesh sites
 to deploy:
 
+- [securemesh-v2-single-nic.tf](./securemesh-v2-single-nic.tf)
 - [appstack.tf](./appstack.tf)
-- [securemesh-single-nic.tf](./securemesh-single-nic.tf)
+- [securemesh-single-nic.tf](./securemesh-single-nic.tf) (legacy CE)
 - [securemesh-dual-nic.tf](./securemesh-dual-nic.tf) (requires 2nd network for inside interface. Example uses VLAN tag on VLAN aware default vmbr0)
 
 Deploy with 
