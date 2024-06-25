@@ -7,9 +7,7 @@ Example Terraform scripts to deploy F5XC Appstack and Secure Mesh sites on Proxm
 ### F5XC CE VM Template
 
 Download the latest qcow2 image from https://vesio.blob.core.windows.net/releases/rhel/9/x86_64/images/securemeshV2/securemeshV2.latest
-manually via Browser or run [./download_ce_image.sh](download_ce_image.sh) directly on your Proxmox server, then
-create a template from the download file on your Proxmox server, adjusting the full (!) path to the downloaded
-qcow2 image, the template id and the Proxmox iso storage to save it:
+manually via Browser.
 
 Then use the script on Proxmox server to import the qcow2 into a template:  [create_f5xc_smv2_template.sh](create_f5xc_smv2_template.sh)
 
