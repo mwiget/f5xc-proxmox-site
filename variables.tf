@@ -13,8 +13,22 @@ variable "f5xc_tenant"         {}
 # Proxmox
 
 variable "pm_api_url"          {}
-variable "pm_api_token_id"     {}
-variable "pm_api_token_secret" {}
+variable "pm_api_token_id"     {
+  type    = string
+  default = ""
+}
+variable "pm_api_token_secret" {
+  type    = string
+  default = ""
+}
+variable "pm_user"             {
+  type    = string
+  default = ""
+}
+variable "pm_password"         {
+  type    = string
+  default = ""
+}
 variable "pm_target_nodes"     {}
 variable "pm_clone"            {}
 variable "pm_pool" {

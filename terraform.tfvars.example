@@ -2,8 +2,13 @@ project_prefix      = "prefix"
 ssh_public_key     = "ssh-ed25519 ...."
 
 pm_api_url          = "https://<proxmox api url>:8006/api2/json"
+
+# use either API Token/Secret or User/Password
 pm_api_token_id     = "<proxmox api token>"
 pm_api_token_secret = "<proxmox api secret>"
+#pm_user             = "root@pam"
+#pm_password         = "<root password>"
+
 pm_target_nodes     = [ "prox1", "prox2", "prox3"]
 iso_storage_pool    = "cephfs"                # or local
 pm_storage_pool     = "cephpool"              # or local-lvm

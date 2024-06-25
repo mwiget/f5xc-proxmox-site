@@ -1,0 +1,17 @@
+#!/bin/bash
+# adjust full path to downloaded qcow2 file, target template id and storage ...
+qcow2=/root/rhel-9.2024.19-20240624061649.qcow2
+id=9002
+storage=thin1
+
+echo "resizing image to 50G ..."
+qemu-img resize $qcow2 50G
+echo "destroying existing VM $id (if present) ..."
+qm destroy $id
+echo "creating vm template $id from $image .."
+qm create $id --memory 16384 --net0 virtio,bridge=vmbr0 --scsihw virtio-scsi-pci
+qm set $id --name f5xc-smv2-template
+qm set $id --scsi0 $storage:0,import-from=$qcow2
+qm set $id --boot order=scsi0
+qm set $id --serial0 socket --vga serial0
+qm template $id

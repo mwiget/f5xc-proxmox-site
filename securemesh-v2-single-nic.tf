@@ -1,8 +1,8 @@
-module "appstack" {
-  count                   = 0
-  source                  = "./proxmox"
-  f5xc_cluster_name       = format("%s-gpu-%s", var.project_prefix, count.index)
-  pm_clone                = var.pm_clone
+module "securemesh-v2-single-nic" {
+  count                   = 1
+  source                  = "./proxmox_smv2"
+  f5xc_cluster_name       = format("%s-sm-single-nic-%d", var.project_prefix, count.index)
+  pm_clone                = "f5xc-smv2-template"
   pm_storage_pool         = var.pm_storage_pool
   iso_storage_pool        = var.iso_storage_pool
 
@@ -11,22 +11,15 @@ module "appstack" {
 
   master_cpus             = 4
   master_memory           = 16384
-  master_vm_size          = "200G"
 
   worker_cpus             = 4
   worker_memory           = 16384
 
-  # requires fix for https://github.com/Telmate/terraform-provider-proxmox/issues/1029
-  #master_hostpci          = [ "A4000" ]
-  master_hostpci          = [ "0000:c1:00" ]
-
-  latitude                = 47
-  longitude               = 8.5
-  volterra_certified_hw   = "kvm-voltstack-combo"  
-  site_registration_token = volterra_token.site.id
   ssh_public_key          = var.ssh_public_key
   pm_target_nodes         = var.pm_target_nodes
   outside_network         = "vmbr0"
+  slo_interface           = "ens18"
+
   # set  to generate fixed  macaddr per node (last octet set to node index)
   # outside_macaddr       = "02:02:02:00:00:00"   
 
